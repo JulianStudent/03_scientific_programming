@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
+import numpy
 
 class MyPolygon:
 
@@ -8,5 +8,8 @@ class MyPolygon:
         self.coordinates = coordinates
 
     def envelope(self):
-        # paste your code here
-        pass
+        min_x = min(coord[0] for coord in self.coordinates)
+        min_y = min(coord[1] for coord in self.coordinates)
+        max_x = max(coord[0] for coord in self.coordinates)
+        max_y = max(coord[1] for coord in self.coordinates)
+        return [(min_x, min_y), (min_x, max_y), (max_x, max_y), (max_x, min_y)]
